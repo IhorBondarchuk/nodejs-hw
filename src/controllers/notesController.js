@@ -21,7 +21,7 @@ export const createNote = async (req, res) => {
 };
 
 export const deleteNote = async (req, res) => {
-  const { noteId } = req.body;
+  const { noteId } = req.params;
   const note = await Note.findOneAndDelete({
     _id: noteId,
   });
