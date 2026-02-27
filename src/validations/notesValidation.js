@@ -10,7 +10,7 @@ export const getAllNotesSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().positive().min(1).default(1).messages({
       'number.base': 'Page must be a number',
-      'number.positive': 'Number must be positive',
+      'number.positive': 'Page must be a positive number',
       'number.min': 'Page cannot be less than 1',
       'number.integer': 'Page must be a integer number',
     }),
@@ -23,9 +23,9 @@ export const getAllNotesSchema = {
       .messages({
         'number.base': 'PerPage must be a number',
         'number.integer': 'PerPage must be a integer number',
-        'number.positive': 'Number must be positive',
-        'number.min': 'PerPage should have at least {#limit} characters',
-        'number.max': 'PerPage should have at least {#limit} characters',
+        'number.positive': 'PerPage must be a positive number',
+        'number.min': 'PerPage should have at least {#limit} value',
+        'number.max': 'at most {#limit} characters',
       }),
     tag: Joi.string()
       .valid(...TAGS)
