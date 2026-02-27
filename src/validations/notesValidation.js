@@ -33,7 +33,7 @@ export const getAllNotesSchema = {
         'string.base': 'Tag must be a string',
         'any.only': `Tag must be one of ${TAGS}`,
       }),
-    search: Joi.string().messages({
+    search: Joi.string().allow("").messages({
       'string.base': 'Search must be a string',
     }),
   }),
@@ -56,7 +56,7 @@ export const createNoteSchema = {
       'string.min': 'Title should have at least {#limit} characters',
       'any.required': 'Title is required',
     }),
-    content: Joi.string().messages({
+    content: Joi.string().allow("").messages({
       'string.base': 'Content must be a string',
     }),
     tag: Joi.string()
@@ -81,7 +81,7 @@ export const updateNoteSchema = {
       'string.base': 'Title must be a string',
       'string.min': 'Title should have at least {#limit} characters',
     }),
-    content: Joi.string().messages({
+    content: Joi.string().allow("").messages({
       'string.base': 'Content must be a string',
     }),
     tag: Joi.string()
