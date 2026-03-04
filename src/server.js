@@ -8,6 +8,8 @@ import { errors } from 'celebrate';
 import { errorHandler } from './middleware/errorHandler.js';
 import notesRoutes from './routes/notesRoutes.js';
 import { setServers } from 'node:dns/promises';
+import authRoutes from './routes/authRoutes.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -15,7 +17,9 @@ const PORT = Number(process.env.PORT) || 3000;
 app.use(logger);
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
+app.use(authRoutes);
 app.use(notesRoutes);
 
 app.use(errors());
