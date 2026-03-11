@@ -1,42 +1,67 @@
-Node.js Homework: Express API with Mock Notes (02-mongodb Branch)
-Description
-This project is a simple Node.js Express server demonstrating REST API basics. It includes routes for managing notes (using mock data), CORS support, structured logging with Pino, and error handling. Although named "02-mongodb", actual MongoDB integration is not implemented yet—endpoints return static responses.
-Tech Stack
+# Node.js Homework - Mail and Image Service
 
-Node.js
-Express.js ^5.2.1
-CORS ^2.8.6
-Pino ^11.0.0 (for logging)
-Dotenv ^17.3.1 (for env vars)
-Dev: Nodemon, ESLint, Prettier
+This project is a Node.js application that provides a RESTful API for managing contacts, including features for sending emails and handling image uploads.
 
-Installation
+## Features
 
-Clone the repo: git clone https://github.com/IhorBondarchuk/nodejs-hw.git
-Checkout branch: git checkout 02-mongodb
-Install dependencies: npm install
-Copy .env.example to .env and set PORT=3000 and NODE_ENV=development
+- User authentication with JWT
+- Contact management (CRUD operations)
+- Emailing services with Nodemailer
+- Image uploads to Cloudinary
+- Password hashing with bcrypt
+- Request validation with Joi (via Celebrate)
 
-Usage
+## Technologies Used
 
-Development: npm run dev (uses Nodemon for auto-reload)
-Production: npm start
-Server runs on http://localhost:3000 (or custom PORT)
+- **Node.js** - JavaScript runtime
+- **Express** - Web framework for Node.js
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling for Node.js
+- **JWT (jsonwebtoken)** - For generating JSON Web Tokens
+- **Nodemailer** - For sending emails
+- **Cloudinary** - For cloud-based image storage
+- **Multer** - For handling multipart/form-data (file uploads)
+- **Bcrypt** - For password hashing
+- **Celebrate** - For request validation
+- **Dotenv** - For managing environment variables
+- **Pino** - For logging
 
-API Endpoints
+## Installation
 
-GET /notes: Retrieve all notes (mock: { "message": "Retrieved all notes" })
-GET /notes/:noteId: Retrieve note by ID (mock: { "message": "Retrieved note with ID: <noteId>" })
-GET /test-error: Simulate error (500: { "message": "Simulated server error" })
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/IhorBondarchuk/nodejs-hw.git
+    ```
+2.  Navigate to the project directory and checkout the correct branch:
+    ```bash
+    cd nodejs-hw
+    git checkout 05-mail-and-img
+    ```
+3.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+4.  Create a `.env` file in the root directory and add the following environment variables:
+    ```
+    PORT=3000
+    DB_HOST=<your_mongodb_connection_string>
+    SECRET_KEY=<your_secret_key>
+    UKR_NET_PASSWORD=<your_ukr_net_password>
+    UKR_NET_EMAIL=<your_ukr_net_email>
+    CLOUDINARY_NAME=<your_cloudinary_name>
+    CLOUDINARY_KEY=<your_cloudinary_key>
+    CLOUDINARY_SECRET=<your_cloudinary_secret>
+    ```
 
-Error Handling
+## Usage
 
-Global middleware catches errors and logs them.
-404 for unknown routes.
+- To start the server in development mode (with auto-reloading):
+  ```bash
+  npm run dev
+  ```
+- To start the server in production mode:
+  ```bash
+  npm start
+  ```
 
-Development Notes
-
-Use ESLint for linting: npm run lint
-Logging is pretty-printed in dev mode.
-
-For contributions, fork and PR. Future: Add MongoDB integration.
+The server will be running on `http://localhost:3000` (or the port specified in your `.env` file).
