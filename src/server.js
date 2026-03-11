@@ -10,6 +10,7 @@ import notesRoutes from './routes/notesRoutes.js';
 import { setServers } from 'node:dns/promises';
 import authRoutes from './routes/authRoutes.js';
 import cookieParser from 'cookie-parser';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -21,6 +22,7 @@ app.use(cookieParser());
 
 app.use(authRoutes);
 app.use(notesRoutes);
+app.use(userRoutes);
 
 app.use(errors());
 
