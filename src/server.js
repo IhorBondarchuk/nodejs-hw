@@ -24,9 +24,9 @@ app.use(authRoutes);
 app.use(notesRoutes);
 app.use(userRoutes);
 
+app.use(notFoundHandler);
 app.use(errors());
 
-app.use(notFoundHandler);
 app.use(errorHandler);
 
 setServers(['1.1.1.1', '8.8.8.8']);
